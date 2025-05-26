@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://i0.statig.com.br/hopihari/img/icon-hh.png?1">
+    <title>Login - Hopi Hari</title>
+</head>
+<body>
+    <body style="background-image: url('../dashboard/img/mapa-hopi-hari-melhorado\ \(1\).jpeg'); background-size: cover; background-repeat: no-repeat;">
+    </body>
+    <div class="login-container">
+        <form action="../others/adm_login.html">
+            <button class="logout-btn" >Admin</button>
+        </form>
+        <div class="login-logo">
+            <img src="../dashboard/img/logo.png" alt="Logo Hopi Hari">
+        </div>
+        <h1>Área do Visitante</h1>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" placeholder="Sua senha" required>
+            </div>
+            <div class="remember-forgot">
+                <div class="remember">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Lembrar-me</label>
+                </div>
+                <div class="forgot">
+                    <a href="#">Esqueceu a senha?</a>
+                </div>
+            </div>
+            <button type="submit" class="login-btn">ENTRAR</button>
+            <div class="register">
+                Ainda não tem conta? <a href="../others/Cadastro.html">Cadastre-se</a>
+            </div>
+        </form>
+        
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            };
+            
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Salvar dados do usuário no localStorage (para demonstração)
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    
+                    // Redirecionar para a página principal (após login bem-sucedido)
+                    alert('Login realizado com sucesso!');
+                    window.location.href = '/dashboard.html';  // Página após login
+                } else {
+                    alert(`Erro: ${data.message || 'Credenciais inválidas'}`);
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro de conexão. Tente novamente mais tarde.');
+            }
+        });
+    </script>
+</body>
+</html>
