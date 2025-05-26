@@ -8,7 +8,7 @@
             };
             
             try {
-                const response = await fetch('localhost:3000/usuarios/login', { // 1
+                const response = await fetch('http://localhost:3000/usuarios/login', { // 1
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

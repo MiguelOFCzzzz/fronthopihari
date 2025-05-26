@@ -22,7 +22,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     };
     
     try {
-        const response = await fetch('/api/register', {
+        const response = await fetch('http://localhost:3000/usuarios/cadastrar', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
