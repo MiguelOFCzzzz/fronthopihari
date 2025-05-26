@@ -20,7 +20,8 @@
                 
                 if (response.ok) {
                     // Salvar dados do usuário no localStorage (para demonstração)
-                    localStorage.setItem('token', JSON.stringify(data.token));       // 2
+                    localStorage.setItem('token', JSON.stringify(data.token));
+                    localStorage.setItem('user', JSON.stringify(data.user));       // 2
                     
                     // Redirecionar para a página principal (após login bem-sucedido)
                     alert('Login realizado com sucesso!');
