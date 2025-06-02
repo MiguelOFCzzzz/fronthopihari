@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário - Hopi Hari</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="https://i0.statig.com.br/hopihari/img/icon-hh.png?1"/>
+</head>
+<body> 
+    <body style="background-image: url('../dashboard/img/Katakumb.png'); background-size: cover; background-repeat: no-repeat;"></body> 
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="https://i0.statig.com.br/imgs/logo_25anos_hh_headerv2.png" alt="Logo Hopi Hari">
+            </div>
+            <div class="user-menu">
+                <div class="user-info">
+                    <span class="user-name">Meu Perfil</span>
+                </div>
+                <form action="../dashboard/dashboard.html">
+                    <button class="logout-btn">Voltar</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <section class="profile-section">
+        <div class="profile-header-section">
+            <div style="display: flex; align-items: center;">
+                <div class="profile-image-container">
+                    <img src="https://img.freepik.com/vetores-premium/circulo-de-usuario-com-circulo-de-gradiente-azul_78370-4727.jpg?semt=ais_items_boosted&w=740" alt="Foto de Perfil">
+                </div>
+                <h2>Dados do Usuário</h2>
+            </div>
+        </div>
+        <div class="user-details-grid">
+            <div class="form-group">
+                <label for="login">Login*</label>
+                <input type="email" id="login" value="email" class="readonly-input" readonly>
+            </div>
+            <div class="form-group">
+                <button class="button secondary-button">Alterar senha</button>
+            </div>
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" value="GISELE">
+            </div>
+            <div class="form-group">
+                <label for="data_nascimento">Data de Nascimento</label>
+                <input type="date" id="data_nascimento" value="2019-09-04">
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" value="(21) 3215-8788">
+            </div>
+            <div class="form-group">
+                <label for="celular">Celular</label>
+                <input type="tel" id="celular" value="(21) 98664-8888">
+            </div>
+            <div class="form-group">
+                <label for="prestador">Prestador</label>
+                <select id="prestador">
+                    <option>NÃO É PRESTADOR</option>
+                </select>
+            </div>
+            <div class="form-group button-group">
+                <button class="button primary-button">Salvar</button>
+            </div>
+        </div>
+    </section>
+
+                <script src="./scriptperfil.js"></script>
+            </div>
