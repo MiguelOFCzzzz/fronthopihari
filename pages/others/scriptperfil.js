@@ -1,34 +1,35 @@
-
-// Verificar se há um usuário logado
-document.addEventListener('DOMContentLoaded', function() {
-    const userToken = JSON.parse(localStorage.getItem('token')) || {};
+document.addEventListener('DOMContentLoaded', function () {
     const userData = JSON.parse(localStorage.getItem('user')) || {};
-    if (userToken) {
-        document.getElementById('user-name').textContent = `Olá, ${userData.firstName}!`;
-        document.getElementById('user-email').textContent = userData.email;
-    } else {
-        // Redirecionar para a página de login se não houver usuário
-        window.location.href = '../login/login.html';
-    }
 
-     // Botão de logout
-     document.getElementById('logout-btn').addEventListener('click', function() {
-        localStorage.removeItem('token');
-        window.location.href = '/';
-    });
-    
-    // Toggle do menu lateral (para mobile)
-    document.getElementById('menu-toggle').addEventListener('click', function() {
-        document.getElementById('sidebar').classList.toggle('active');
-    });
-    
-    // Fechar menu ao clicar em um item (para mobile)
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth <= 992) {
-                document.getElementById('sidebar').classList.remove('active');
-            }
-        });
+ 
+    document.getElementById('login').value = userData.email || '';
+    document.getElementById('nome').value = userData.firstName || '';
+    document.getElementById('data_nascimento').value = userData.birthDate || '';
+    document.getElementById('telefone').value = userData.phone || '';
+    document.getElementById('celular').value = userData.mobile || '';
+    document.getElementById('prestador').value = userData.provider || '';
+
+   
+    document.querySelector('.primary-button').addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const updatedUserData = {
+            email: document.getElementById('login').value,
+            firstName: document.getElementById('nome').value,
+            birthDate: document.getElementById('data_nascimento').value,
+            phone: document.getElementById('telefone').value,
+            mobile: document.getElementById('celular').value,
+            provider: document.getElementById('prestador').value,
+        };
+
+      
+        if (!updatedUserData.firstName || !updatedUserData.email) {
+            alert('Por favor, preencha os campos obrigatórios.');
+            return;
+        }
+
+       
+        localStorage.setItem('user', JSON.stringify(updatedUserData));
+        alert('Informações atualizadas com sucesso!');
     });
 });

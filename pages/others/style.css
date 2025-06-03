@@ -163,12 +163,14 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .logo img {
@@ -213,9 +215,11 @@ body {
 }
 
 body {
-    min-height: 100vh;
-    background-color: #f2f2f2;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
